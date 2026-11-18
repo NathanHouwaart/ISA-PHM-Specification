@@ -16,6 +16,7 @@ responsibility.
 ## Contents
 
 - [Specification work](specification/README.md)
+- [Shared draft unit and quantity catalogues](catalogues/README.md)
 - [Readable working draft](specification/draft-profile.md)
 - [ISA-JSON implementation notes](specification/isa-json-implementation-notes.md)
 - [Current ISA-JSON field inventory](specification/isa-json-field-inventory.md)

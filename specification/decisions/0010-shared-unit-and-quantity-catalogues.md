@@ -2,12 +2,13 @@
 
 Status: agreed direction for the draft; not yet a released specification.
 
-The specification repository is intended to provide a shared, versioned home
+The specification repository provides a shared, versioned home
 for the unit and measured-quantity catalogues used by ISA-PHM tools and
 validators. The intended foundation is a pinned QUDT vocabulary version,
 with any ISA-PHM-defined additions clearly distinguished from QUDT entries.
-The current Wizard catalogue, generated from QUDT 3.5.2, is an input to review,
-not automatically the approved specification catalogue.
+The Wizard's existing QUDT 3.5.2 snapshot is the initial shared draft catalogue,
+alongside explicitly identified ISA-PHM additions. This centralization does
+not by itself make the snapshot a released specification requirement.
 
 A unit recognized by the specification is not automatically supported by
 every tool or analysis. Tools should identify the units and operations they
@@ -46,6 +47,6 @@ to be specified.
 
 The exact included units, how quantity–unit compatibility is determined,
 the treatment of unknown or not-applicable answers, versioning and update
-policy, catalogue format, licensing and attribution, and a mechanism for
-exceptional or project-defined terms remain to be decided. No particular
-catalogue snapshot has yet been adopted or moved into this repository.
+policy and a mechanism for exceptional or project-defined terms remain to be
+decided. The current snapshot and attribution are recorded in
+[the catalogue guide](../../catalogues/README.md).

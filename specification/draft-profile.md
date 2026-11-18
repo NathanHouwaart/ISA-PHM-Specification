@@ -66,8 +66,8 @@ Physical-device metadata is optional. Where grouping is provided, outputs of
 the same physical device share a dataset-unique device identifier, which a
 tool may generate automatically. The exact ISA representation remains open.
 
-Versioned unit and quantity catalogues are planned in this repository, based on
-an adopted QUDT version with clearly labelled local additions. Custom units or
+Shared draft unit and quantity catalogues are provided in this repository,
+based on QUDT 3.5.2 with clearly labelled local additions. Custom units or
 quantities are an exceptional option and should travel with the dataset with
 their name, description and identifier. Automated support may be limited.
 Quantity–unit relationships should guide suggestions and warnings; a missing
