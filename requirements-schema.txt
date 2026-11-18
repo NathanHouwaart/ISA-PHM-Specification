@@ -1,0 +1,3 @@
+# Optional offline ISA 1.0 core JSON Schema validation baseline.
+isatools==0.14.3
+jsonschema==4.23.0

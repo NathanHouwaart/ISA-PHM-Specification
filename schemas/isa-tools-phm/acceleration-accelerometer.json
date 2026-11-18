@@ -1,0 +1,7 @@
+{
+  "measurementType": "Acceleration",
+  "technologyType": "Accelerometer",
+  "protocols": [{"inputs": "#sample", "protocol": "Measurement Protocol", "outputs": "#data_file"}],
+  "protocolSequence": ["Measurement Protocol"],
+  "description": ["ISA-PHM acceleration measurement"]
+}

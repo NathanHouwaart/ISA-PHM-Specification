@@ -1,0 +1,7 @@
+{
+  "additionalCharacteristics": true,
+  "additionalFactorValues": true,
+  "protocols": [{"inputs": "#source", "protocol": "Experiment Preparation Protocol", "outputs": "#sample"}],
+  "protocolSequence": ["Experiment Preparation Protocol"],
+  "description": ["ISA-PHM experiment preparation"]
+}

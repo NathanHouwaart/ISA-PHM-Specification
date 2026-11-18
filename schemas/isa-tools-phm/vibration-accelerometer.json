@@ -1,0 +1,7 @@
+{
+  "measurementType": "Vibration",
+  "technologyType": "Accelerometer",
+  "protocols": [{"inputs": "#sample", "protocol": "Measurement Protocol", "outputs": "#data_file"}],
+  "protocolSequence": ["Measurement Protocol"],
+  "description": ["ISA-PHM vibration measurement"]
+}

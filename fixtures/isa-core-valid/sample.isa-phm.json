@@ -1,0 +1,397 @@
+{
+  "identifier": "c60a80c9-ce58-478f-ad54-b3f365b1686b",
+  "title": "Synthetic diagnostic bearing example",
+  "description": "Minimal payload for backend smoke and integration tests",
+  "publicReleaseDate": "2026-03-21",
+  "submissionDate": "2026-03-20",
+  "comments": [
+    {
+      "name": "ud_identifier",
+      "value": "INV-001"
+    },
+    {
+      "name": "experiment_type",
+      "value": "Diagnostics"
+    },
+    {
+      "name": "license",
+      "value": ""
+    }
+  ],
+  "ontologySourceReferences": [],
+  "people": [],
+  "publications": [],
+  "studies": [
+    {
+      "filename": "s01_.txt",
+      "identifier": "study-1",
+      "title": "Study 1",
+      "description": "Demo study",
+      "submissionDate": "2026-03-20",
+      "publicReleaseDate": "2026-03-21",
+      "publications": [],
+      "people": [],
+      "comments": [
+        {
+          "name": "total_runs",
+          "value": "1"
+        }
+      ],
+      "studyDesignDescriptors": [
+        {
+          "@id": "#ontology_annotation/85b75291-a9e9-4551-b969-7700f5324c78",
+          "annotationValue": "Diagnostics",
+          "termSource": "",
+          "termAccession": "",
+          "comments": []
+        }
+      ],
+      "protocols": [
+        {
+          "@id": "#protocol/d012b3f7-9848-41a9-9244-5106c402d6ab",
+          "name": "Experiment Preparation",
+          "description": "",
+          "uri": "",
+          "version": "",
+          "comments": [],
+          "parameters": [],
+          "protocolType": {
+            "@id": "#ontology_annotation/b7cb34a1-2a5d-450d-a9e6-16cca94731af",
+            "annotationValue": "Experiment Preparation Protocol",
+            "termSource": "",
+            "termAccession": "",
+            "comments": []
+          },
+          "components": []
+        },
+        {
+          "@id": "#protocol/49f5a314-d31f-4d2f-ac60-f2bdb1f34c77",
+          "name": "Vibration measurement (sensor-1)",
+          "description": "Accelerometer on housing",
+          "uri": "",
+          "version": "",
+          "comments": [
+            {
+              "name": "Sensor id",
+              "value": "sensor-1"
+            },
+            {
+              "name": "selected_measurement_protocol_id",
+              "value": "mp-1"
+            }
+          ],
+          "parameters": [
+            {
+              "@id": "#protocol_parameter/3b4e4b7f-b65c-4421-974b-240952ed2997",
+              "parameterName": {
+                "@id": "#ontology_annotation/faa832df-4884-4c47-9348-76fd36bf12e3",
+                "annotationValue": "Sampling Rate",
+                "termSource": "",
+                "termAccession": "",
+                "comments": []
+              }
+            }
+          ],
+          "protocolType": {
+            "@id": "#ontology_annotation/6857a7bc-b499-472a-972b-e8a2684dca69",
+            "annotationValue": "Measurement Protocol",
+            "termSource": "",
+            "termAccession": "",
+            "comments": []
+          },
+          "components": []
+        },
+        {
+          "@id": "#protocol/8937e026-ce2c-4ab6-bbda-d78560c27cf6",
+          "name": "Vibration processing (sensor-1)",
+          "description": "Accelerometer on housing",
+          "uri": "",
+          "version": "",
+          "comments": [
+            {
+              "name": "Sensor id",
+              "value": "sensor-1"
+            },
+            {
+              "name": "selected_processing_protocol_id",
+              "value": "pp-1"
+            }
+          ],
+          "parameters": [
+            {
+              "@id": "#protocol_parameter/c169df65-a7ed-4bc0-918d-27881d7c9a40",
+              "parameterName": {
+                "@id": "#ontology_annotation/000980dc-9e15-4168-9be1-db9ba15ebf80",
+                "annotationValue": "Window Function",
+                "termSource": "",
+                "termAccession": "",
+                "comments": []
+              }
+            }
+          ],
+          "protocolType": {
+            "@id": "#ontology_annotation/ed3baed8-129d-4676-89db-0eeea813b177",
+            "annotationValue": "Processing Protocol",
+            "termSource": "",
+            "termAccession": "",
+            "comments": []
+          },
+          "components": []
+        }
+      ],
+      "materials": {
+        "sources": [
+          {
+            "@id": "#source/435d2279-951e-44a6-b662-c6b28cfc0a89",
+            "name": "Rig A",
+            "characteristics": [
+              {
+                "category": {
+                  "@id": "#characteristic_category/107ff047-4590-40f9-b84e-40b477a54093"
+                },
+                "value": "Rig",
+                "comments": []
+              },
+              {
+                "category": {
+                  "@id": "#characteristic_category/4bd2bb96-c765-4287-b9d4-23d397967342"
+                },
+                "value": "Configuration 1",
+                "comments": []
+              },
+              {
+                "category": {
+                  "@id": "#characteristic_category/a7ec24de-b5b6-44d7-9d2f-995416789ccc"
+                },
+                "value": "bearing-1",
+                "comments": []
+              },
+              {
+                "category": {
+                  "@id": "#characteristic_category/50537f95-c8a0-46a9-b869-31006904dec4"
+                },
+                "value": "6205",
+                "comments": []
+              }
+            ],
+            "comments": [
+              {
+                "name": "description",
+                "value": "Demo setup"
+              }
+            ]
+          }
+        ],
+        "samples": [
+          {
+            "@id": "#sample/93cac7d2-1d30-4a90-b343-300c127e2fd2",
+            "name": "Rig A - Configuration 1 - Run 1",
+            "characteristics": [],
+            "factorValues": [
+              {
+                "category": {
+                  "@id": "#study_factor/6e2f57e9-aac4-4f50-b7d5-482f900a843d"
+                },
+                "value": "1200",
+                "unit": {
+                  "@id": "#ontology_annotation/73aecf32-f909-4b97-a817-048b4fdada8b"
+                }
+              }
+            ],
+            "derivesFrom": [
+              {
+                "@id": "#source/435d2279-951e-44a6-b662-c6b28cfc0a89"
+              }
+            ],
+            "comments": []
+          }
+        ],
+        "otherMaterials": []
+      },
+      "processSequence": [
+        {
+          "@id": "#process/6a913ce3-f5c9-44d9-bcd8-88d499ca561d",
+          "name": "",
+          "performer": "",
+          "date": "",
+          "executesProtocol": {
+            "@id": "#protocol/d012b3f7-9848-41a9-9244-5106c402d6ab"
+          },
+          "parameterValues": [],
+          "inputs": [
+            {
+              "@id": "#source/435d2279-951e-44a6-b662-c6b28cfc0a89"
+            }
+          ],
+          "outputs": [
+            {
+              "@id": "#sample/93cac7d2-1d30-4a90-b343-300c127e2fd2"
+            }
+          ],
+          "comments": []
+        }
+      ],
+      "factors": [
+        {
+          "@id": "#study_factor/6e2f57e9-aac4-4f50-b7d5-482f900a843d",
+          "factorName": "Load",
+          "factorType": {
+            "@id": "#ontology_annotation/b3f270db-8e9a-40fe-a701-b8244e5bf288",
+            "annotationValue": "numeric",
+            "termSource": "",
+            "termAccession": "",
+            "comments": []
+          },
+          "comments": [
+            {
+              "name": "description",
+              "value": "Applied load"
+            }
+          ]
+        }
+      ],
+      "characteristicCategories": [
+        {
+          "@id": "#characteristic_category/107ff047-4590-40f9-b84e-40b477a54093",
+          "characteristicType": {
+            "@id": "#ontology_annotation/107ff047-4590-40f9-b84e-40b477a54093",
+            "annotationValue": "Machine",
+            "termSource": "",
+            "termAccession": "",
+            "comments": []
+          }
+        },
+        {
+          "@id": "#characteristic_category/4bd2bb96-c765-4287-b9d4-23d397967342",
+          "characteristicType": {
+            "@id": "#ontology_annotation/4bd2bb96-c765-4287-b9d4-23d397967342",
+            "annotationValue": "Configuration Name",
+            "termSource": "",
+            "termAccession": "",
+            "comments": []
+          }
+        },
+        {
+          "@id": "#characteristic_category/a7ec24de-b5b6-44d7-9d2f-995416789ccc",
+          "characteristicType": {
+            "@id": "#ontology_annotation/a7ec24de-b5b6-44d7-9d2f-995416789ccc",
+            "annotationValue": "Replaceable Component",
+            "termSource": "",
+            "termAccession": "",
+            "comments": []
+          }
+        },
+        {
+          "@id": "#characteristic_category/50537f95-c8a0-46a9-b869-31006904dec4",
+          "characteristicType": {
+            "@id": "#ontology_annotation/50537f95-c8a0-46a9-b869-31006904dec4",
+            "annotationValue": "Bearing type",
+            "termSource": "",
+            "termAccession": "",
+            "comments": []
+          }
+        }
+      ],
+      "unitCategories": [
+        {
+          "@id": "#unit/73aecf32-f909-4b97-a817-048b4fdada8b",
+          "annotationValue": "N",
+          "termSource": "",
+          "termAccession": "",
+          "comments": []
+        },
+        {
+          "@id": "#ontology_annotation/73aecf32-f909-4b97-a817-048b4fdada8b",
+          "annotationValue": "N",
+          "termSource": "",
+          "termAccession": "",
+          "comments": []
+        },
+        {
+          "@id": "#unit/2a53c7d4-6875-4b65-af1c-5af38e241e18",
+          "annotationValue": "Hz",
+          "termSource": "",
+          "termAccession": "",
+          "comments": []
+        }
+      ],
+      "assays": [
+        {
+          "measurementType": {
+            "@id": "#ontology_annotation/f4552b01-5fed-488c-a722-e3fe9c525c7b",
+            "annotationValue": "Vibration",
+            "termSource": "",
+            "termAccession": "",
+            "comments": []
+          },
+          "technologyType": {
+            "@id": "#ontology_annotation/0645321d-8ef2-4666-b36b-45dfce36e750",
+            "annotationValue": "Accelerometer",
+            "termSource": "",
+            "termAccession": "",
+            "comments": []
+          },
+          "technologyPlatform": "DAQ",
+          "filename": "se01",
+          "characteristicCategories": [],
+          "unitCategories": [],
+          "comments": [
+            {
+              "name": "sensor alias",
+              "value": "S1"
+            }
+          ],
+          "materials": {
+            "samples": [
+              {
+                "@id": "#sample/93cac7d2-1d30-4a90-b343-300c127e2fd2"
+              }
+            ],
+            "otherMaterials": []
+          },
+          "dataFiles": [
+            {
+              "@id": "#data_file/eb8fc87a-e54a-4b61-a095-9a2601ccb3d3",
+              "name": "Data/signal.csv",
+              "type": "Raw Data File",
+              "comments": []
+            }
+          ],
+          "processSequence": [
+            {
+              "@id": "#process/a7496dbe-f6ba-4939-8bce-71a8df7bbac2",
+              "name": "S1_run_1_measurement",
+              "performer": "",
+              "date": "",
+              "executesProtocol": {
+                "@id": "#protocol/49f5a314-d31f-4d2f-ac60-f2bdb1f34c77"
+              },
+              "parameterValues": [
+                {
+                  "category": {
+                    "@id": "#protocol_parameter/3b4e4b7f-b65c-4421-974b-240952ed2997"
+                  },
+                  "value": 25600,
+                  "unit": {
+                    "@id": "#unit/2a53c7d4-6875-4b65-af1c-5af38e241e18"
+                  }
+                }
+              ],
+              "inputs": [
+                {
+                  "@id": "#sample/93cac7d2-1d30-4a90-b343-300c127e2fd2"
+                }
+              ],
+              "outputs": [
+                {
+                  "@id": "#data_file/eb8fc87a-e54a-4b61-a095-9a2601ccb3d3"
+                }
+              ],
+              "comments": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

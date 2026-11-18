@@ -1,0 +1,10 @@
+{
+  "status": "experimental",
+  "rules": [
+    {
+      "quantityIdentifiers": ["http://qudt.org/vocab/quantitykind/Acceleration", "http://qudt.org/vocab/quantitykind/LinearAcceleration"],
+      "unitIdentifiers": ["http://qudt.org/vocab/unit/GM", "http://qudt.org/vocab/unit/KiloGM"],
+      "message": "A mass unit is selected for an acceleration quantity. Review the quantity and measured unit."
+    }
+  ]
+}
