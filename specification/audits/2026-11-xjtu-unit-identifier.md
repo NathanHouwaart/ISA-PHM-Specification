@@ -1,5 +1,9 @@
 # XJTU-SY subset: unit identifier finding
 
+**Follow-up:** The project was re-exported with `G` / `unit:G`; all 568
+measurement processes in that later export were verified. The observations
+below describe the earlier export and are retained as audit history.
+
 In the locally supplied small-subset export, the first measurement process of
 each of the four assays contains the measured-unit value `g` with identifier
 `http://qudt.org/vocab/unit/GM`; the assay quantity is QUDT Acceleration.

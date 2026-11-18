@@ -47,6 +47,7 @@ ISA-tools validator with the experimental PHM configuration, use
 `python -m validator <file> --isa`. See
 [the validator guide](validator/README.md).
 
-After the specification has an agreed release, other repositories can pin it
-as a Git submodule. No submodules or public remotes are configured by this
-draft. Existing tool repositories and datasets are unchanged.
+The Wizard and Wrapper can pin a draft revision of this repository as a Git
+submodule for shared experimental rules. A pinned commit makes the inputs
+reproducible; it does not turn the draft into a released standard. Consumers
+must update their pinned revisions deliberately when adopting changes.

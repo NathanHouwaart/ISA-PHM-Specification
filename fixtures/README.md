@@ -15,8 +15,8 @@ datasets do not need to be included in this public-facing repository.
 from the sibling Backend's minimal test payload. It passes the selected layout
 checks and the pinned ISA 1.0 core JSON Schema. `isa-core-invalid/` is a copy
 with a comment value intentionally changed to a number; it should fail that
-schema. These are **not certified ISA-PHM datasets**: the full ISA content and
-graph checks, the PHM configuration and the evolving ISA-PHM profile have not
-been established. The examples are synthetic and contain no research data.
+schema. These are **not certified ISA-PHM datasets**: experimental ISA-tools
+and PHM checks do not cover the complete evolving ISA-PHM profile. The
+examples are synthetic and contain no research data.
 The optional generator is `scripts/generate-synthetic-isa-fixtures.py`; it
 requires the sibling Backend and regenerates UUIDs.
