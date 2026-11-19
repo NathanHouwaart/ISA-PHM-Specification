@@ -15,11 +15,44 @@ def main() -> int:
     parser.add_argument("--isa", action="store_true", help="Also run the ISA-tools validator with the experimental ISA-PHM configuration")
     parser.add_argument("--phm-protocols", action="store_true", help="Check experimental Backend-style measurement and processing relationships")
     parser.add_argument("--phm-metadata", action="store_true", help="Check for explicit measurement metadata answers in the current Backend mapping")
+    parser.add_argument("--phm-experiment-type", action="store_true", help="Check experiment type in the current Wizard/Backend mapping")
+    parser.add_argument("--phm-sensors", action="store_true", help="Check sensor quantity, technology and model answers in the current Backend mapping")
+    parser.add_argument("--phm-sensor-csv", action="store_true", help="Stream referenced sensor CSV files and check their column counts")
     parser.add_argument("--color", choices=("auto", "always", "never"), default="auto", help="Terminal colors (default: auto)")
     args = parser.parse_args()
     result = check_dataset(args.investigation, dataset_root=args.root)
     isa_report = None
     isa_notes = []
+    if args.phm_sensor_csv:
+        from .phm_sensor_csv import check_sensor_csvs
+        from .layout import Issue
+        try:
+            with args.investigation.open(encoding="utf-8-sig") as source:
+                csv_result = check_sensor_csvs(json.load(source), args.root or args.investigation.parent)
+            result.errors.extend(csv_result.errors)
+            result.warnings.extend(csv_result.warnings)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            result.warnings.append(Issue("phm-csv-incomplete", "Document could not be read; sensor CSVs were not checked."))
+    if args.phm_sensors:
+        from .phm_sensors import check_sensor_answers
+        from .layout import Issue
+        try:
+            with args.investigation.open(encoding="utf-8-sig") as source:
+                sensor_result = check_sensor_answers(json.load(source))
+            result.errors.extend(sensor_result.errors)
+            result.warnings.extend(sensor_result.warnings)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            result.warnings.append(Issue("phm-sensors", "Document could not be read; sensor answers were not checked."))
+    if args.phm_experiment_type:
+        from .phm_experiment_type import check_experiment_type
+        from .layout import Issue
+        try:
+            with args.investigation.open(encoding="utf-8-sig") as source:
+                experiment_result = check_experiment_type(json.load(source))
+            result.errors.extend(experiment_result.errors)
+            result.warnings.extend(experiment_result.warnings)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            result.warnings.append(Issue("phm-experiment-type", "Document could not be read; experiment type was not checked."))
     if args.phm_metadata:
         from .phm_metadata import check_measurement_metadata
         try:
@@ -93,10 +126,16 @@ def main() -> int:
         print(f"{label('PASS', color)} ISA 1.0 core JSON Schema passed.")
     if isa_report and isa_report["completed"] and not isa_report["errors"] and not isa_report.get("logged_errors"):
         print(f"{label('PASS', color)} ISA-tools validation completed without errors with the experimental PHM configuration.")
-    if args.phm_protocols and not any(issue.code.startswith("phm-") and not issue.code.startswith("phm-metadata") for issue in result.errors + result.warnings):
+    if args.phm_protocols and not any(issue.code.startswith("phm-") and not issue.code.startswith(("phm-metadata", "phm-experiment-type", "phm-sensor", "phm-csv")) for issue in result.errors + result.warnings):
         print(f"{label('PASS', color)} Selected experimental ISA-PHM protocol relationship checks passed.")
     if args.phm_metadata and not any(issue.code.startswith("phm-metadata") for issue in result.errors + result.warnings):
         print(f"{label('PASS', color)} Selected experimental measurement metadata presence checks passed.")
+    if args.phm_experiment_type and not any(issue.code == "phm-experiment-type" for issue in result.errors + result.warnings):
+        print(f"{label('PASS', color)} Experimental experiment-type mapping check passed.")
+    if args.phm_sensors and not any(issue.code.startswith("phm-sensor") for issue in result.errors + result.warnings):
+        print(f"{label('PASS', color)} Experimental sensor answer presence checks passed.")
+    if args.phm_sensor_csv and not any(issue.code.startswith("phm-csv") for issue in result.errors + result.warnings):
+        print(f"{label('PASS', color)} Experimental sensor CSV column-count checks passed.")
     print(f"Selected checks: {len(result.errors)} error(s), {len(result.warnings)} item(s) not checked, {len(result.advisories)} advisory warning(s).")
     print(f"{label('NOT CHECKED', color)} Factor and other unrecognized file references; selected assay, source and characteristic references are checked.")
     if schema_checked:

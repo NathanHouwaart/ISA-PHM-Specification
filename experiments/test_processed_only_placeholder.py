@@ -28,6 +28,42 @@ from validator.phm_protocols import check_protocols  # noqa: E402
 
 
 class ProcessedOnlyPlaceholderExperiment(unittest.TestCase):
+    def test_backend_validator_and_wrapper_for_all_output_modes(self):
+        payload = json.loads((BACKEND / "tests/fixtures/minimal_payload.json").read_text(encoding="utf-8-sig"))
+        cases = (("raw-only", "Data/raw.csv", ""),
+                 ("raw-and-processed", "Data/raw.csv", "Data/processed.csv"),
+                 ("processed-only", "", "Data/processed.csv"))
+        for label, raw, processed in cases:
+            with self.subTest(mode=label), tempfile.TemporaryDirectory(prefix="isa_phm_modes_") as directory:
+                data = copy.deepcopy(payload)
+                run = data["studies"][0]["assay_details"][0]["runs"][0]
+                run["raw_file_name"], run["processed_file_name"] = raw, processed
+                document = json.loads(json.dumps(create_isa_data(data), cls=isajson.ISAJSONEncoder))
+                root = Path(directory)
+                for folder in ("Data", "Datasheets", "Images"):
+                    (root / folder).mkdir()
+                if raw:
+                    (root / raw).write_text("time,value\n0,1\n0.0000390625,2\n", encoding="utf-8")
+                if processed:
+                    (root / processed).write_text("time,value\n0,10\n0.0000390625,20\n", encoding="utf-8")
+                path = root / "sample.isa-phm.json"
+                path.write_text(json.dumps(document), encoding="utf-8")
+                layout, protocols = check_dataset(path), check_protocols(document)
+                self.assertEqual((layout.errors, layout.warnings), ([], []))
+                self.assertEqual((protocols.errors, protocols.warnings), ([], []))
+                assay = ISAWrapper(path, data_root=root).study(1).assay(1)
+                self.assertEqual(assay.load_dataframe(file_type="auto")["value"].tolist(), [10, 20] if processed else [1, 2])
+                if raw:
+                    self.assertEqual(assay.load_dataframe(file_type="raw")["value"].tolist(), [1, 2])
+                else:
+                    with self.assertRaises(DataFileError):
+                        assay.load_dataframe(file_type="raw")
+                if processed:
+                    self.assertEqual(assay.load_dataframe(file_type="processed")["value"].tolist(), [10, 20])
+                else:
+                    with self.assertRaises(DataFileError):
+                        assay.load_dataframe(file_type="processed")
+
     def test_protocol_checks_against_backend_output_modes(self):
         payload = json.loads((BACKEND / "tests/fixtures/minimal_payload.json").read_text(encoding="utf-8-sig"))
         for raw, processed in (("Data/raw.csv", ""), ("Data/raw.csv", "Data/processed.csv"), ("", "Data/processed.csv")):

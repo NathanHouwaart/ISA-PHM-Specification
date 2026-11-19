@@ -18,6 +18,7 @@ responsibility.
 - [Specification work](specification/README.md)
 - [Shared draft unit and quantity catalogues](catalogues/README.md)
 - [Readable working draft](specification/draft-profile.md)
+- [Candidate first-release rule inventory](specification/first-release-rule-inventory.md)
 - [ISA-JSON implementation notes](specification/isa-json-implementation-notes.md)
 - [Current ISA-JSON field inventory](specification/isa-json-field-inventory.md)
 - [Schema work](schemas/README.md)
@@ -25,6 +26,7 @@ responsibility.
 - [Experimental validator](validator/README.md)
 - [Initial audit](specification/initial-audit.md)
 - [First interface audit](specification/audits/2026-11-initial-interface-audit.md)
+- [First-release readiness audit and backlog](specification/audits/2026-11-first-release-backlog.md)
 - [Exploratory XJTU-SY export check](specification/audits/2026-11-xjtu-existing-export.md)
 - [XJTU-SY measured-unit identifier finding](specification/audits/2026-11-xjtu-unit-identifier.md)
 

@@ -65,11 +65,19 @@ list of known incompatible quantity/unit identifier pairs. It does not
 comprehensively verify unit compatibility or scientific correctness. The Wrapper reads
 `Measured Unit` directly and does not infer it from other parameter units.
 
+For a numeric measurement or processing parameter, its `unit` reference can
+point to a study unit annotation whose `termAccession` holds the selected unit
+identifier. The same ISA unit annotation mechanism applies to numeric or
+text-valued component characteristics where the Backend emits a unit. The
+Wizard-to-Backend payload's `unitIdentifier` field is an application-level
+transport field, not an ISA-JSON field. Existing text-only units remain
+readable; they must not be silently assigned an identifier by inference.
+
 Symbols alone are not sufficient identifiers: QUDT's `g`/`unit:GM` is gram,
 whereas its gravity acceleration unit is `G`/`unit:G`. A real XJTU export
 previously recorded acceleration with the gram identifier; see the
-[dataset audit](audits/2026-11-xjtu-unit-identifier.md). This check does not
-now warns on that particular mismatch, but many combinations remain unchecked.
+[dataset audit](audits/2026-11-xjtu-unit-identifier.md). The check now warns on
+that particular mismatch, but many combinations remain unchecked.
 
 The experimental warning rules are recorded in
 `quantity-unit-warning-rules.json`. Consumers should pin an exact revision of

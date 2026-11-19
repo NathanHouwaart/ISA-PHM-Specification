@@ -27,6 +27,9 @@ python -m validator path/to/investigation.json --isa-schema
 python -m validator path/to/investigation.json --isa
 python -m validator path/to/investigation.json --phm-protocols
 python -m validator path/to/investigation.json --phm-metadata
+python -m validator path/to/investigation.json --phm-experiment-type
+python -m validator path/to/investigation.json --phm-sensors
+python -m validator path/to/investigation.json --phm-sensor-csv
 python -m validator path/to/investigation.json --color never
 python -m unittest discover -s validator/tests
 ```
@@ -69,11 +72,42 @@ unlisted and custom identifiers are not assumed compatible or invalid. The
 check does not comprehensively validate sampling rates, unit identifiers,
 quantity/unit compatibility, or scientific correctness.
 
+`--phm-experiment-type` checks the investigation's `experiment_type` comment
+against the current Wizard values `diagnostic-experiment` and
+`prognostics-experiment`. Missing, blank or conflicting recognized answers
+fail this experimental mapping check. Unknown legacy values, malformed
+comments and duplicate identical answers are reported as not checked: aliases
+and duplicate policy have not been decided. This does not inspect study design
+descriptors or establish that the recorded research purpose is correct; the
+mapping is not yet an approved versioned requirement.
+
+`--phm-sensors` checks for explicit answers in each assay's current Backend
+mapping: measured quantity in `measurementType.annotationValue`, technology
+type in `technologyType.annotationValue`, and model in `technologyPlatform`.
+Missing or blank answers fail the check. Unknown is accepted for all three;
+not applicable is accepted for technology and model, but is not checked for
+quantity because its treatment is not established. Malformed or unreadable
+structures are reported as not checked. The check does not determine which
+outputs are included, verify ontology identifiers, confirm the answers are
+scientifically correct, or validate optional physical-device grouping.
+
+`--phm-sensor-csv` streams referenced raw and derived sensor CSV files and
+checks that each nonblank row has exactly two columns. It detects a single
+unambiguous comma, semicolon, tab or pipe delimiter from the first nonblank
+line; this is an experimental reader choice, not a finalized delimiter rule.
+Empty, non-CSV, missing, unreadable, ambiguous and unsupported references are
+reported as not checked. The marked unavailable-raw placeholder is skipped.
+Files are read only after resolving them within the dataset's `Data/` directory.
+This check can take time on large datasets. It does not establish whether the
+first column is time, the second is the correct sensor, whether a header is
+present, numeric format, timestamp units, zero-start, sampling regularity or
+synchronization. It does not inspect CSV files referenced by study factors.
+
 Exit status is 0 when the selected checks find no errors or uninspectable
 entries; 1 means at least one checked rule failed; 2 means a selected check
 could not be completed and no checked rule failed. Output identifies unchecked
 areas. In particular, this tool does not check the
-study-factor file paths or other unrecognized references, CSV content,
+study-factor file paths or other unrecognized references, most CSV content,
 protocol content, quantities, units, timing, or scientific
 correctness. ISA content and process-graph checks run only with `--isa`;
 `--isa-schema` is a separate structural diagnostic. A zero exit status does **not** mean a complete or ISA-PHM-conforming
