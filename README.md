@@ -24,6 +24,10 @@ responsibility.
 - [Schema work](schemas/README.md)
 - [Fixture work](fixtures/README.md)
 - [Experimental validator](validator/README.md)
+
+The experimental validator exposes a Python API and CLI for selected checks.
+A pass is not yet an ISA-PHM compliance claim; no profile version has been
+released. See the validator guide for installation and scope limitations.
 - [Initial audit](specification/initial-audit.md)
 - [First interface audit](specification/audits/2026-11-initial-interface-audit.md)
 - [First-release readiness audit and backlog](specification/audits/2026-11-first-release-backlog.md)
@@ -43,8 +47,9 @@ The early layout-checking utility uses Python's standard library. Run its tests:
 python -m unittest discover -s validator/tests
 ```
 
-For the optional offline ISA core-schema check, install the pinned dependencies
-from `requirements-schema.txt` and run `python -m validator <file> --isa-schema`.
+Install the draft validator from this checkout with `python -m pip install .`.
+To include the optional offline ISA checks, use `python -m pip install ".[isa]"`
+and run `isa-phm-validate <file> --isa-schema`.
 The schema check does not include ISA content or graph validation. To run the
 ISA-tools validator with the experimental PHM configuration, use
 `python -m validator <file> --isa`. See

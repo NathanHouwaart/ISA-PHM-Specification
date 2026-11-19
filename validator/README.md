@@ -30,12 +30,49 @@ python -m validator path/to/investigation.json --phm-metadata
 python -m validator path/to/investigation.json --phm-experiment-type
 python -m validator path/to/investigation.json --phm-sensors
 python -m validator path/to/investigation.json --phm-sensor-csv
+python -m validator path/to/investigation.json --isa-schema --phm-metadata --json
 python -m validator path/to/investigation.json --color never
 python -m unittest discover -s validator/tests
 ```
 
-The optional `--isa-schema` check requires `python -m pip install -r
-requirements-schema.txt`. It checks only the pinned ISA model 1.0 **core JSON
+## Python API
+
+Install from a checkout with `python -m pip install .`, or install a built
+wheel with `python -m pip install path/to/isa_phm_validator-0.1.0.dev0-py3-none-any.whl`.
+Use `python -m pip install ".[isa]"` from a checkout to include the pinned
+optional ISA dependencies. Both the `isa-phm-validate` command and
+`python -m validator` provide the CLI. The same implementation can be called
+directly from Python:
+
+```python
+from validator import validate_dataset
+
+report = validate_dataset(
+    "path/to/dataset.isa-phm.json",
+    checks=("layout", "isa_schema", "phm_protocols", "phm_metadata"),
+    profile="draft",
+)
+print(report.status)  # pass, fail, or incomplete for the selected checks
+print(report.checks["phm_metadata"].errors)
+print(report.not_selected)
+print(report.to_dict())  # JSON-serializable data
+```
+
+`checks` defaults to `("layout",)`; see `validator.CHECKS` for all check
+names. Each result separates errors, incomplete findings and non-blocking
+advisories. A failure takes precedence over incomplete checks in the overall
+status, but both remain visible in the report. Unknown check names and profile
+names are rejected. The CLI's `--json` emits the same structured report and
+uses the same exit statuses as the text interface.
+
+`draft` is a development profile, **not a specification release**: reports
+currently set `specification_version` and `conformant` to `null`, including
+when selected checks pass. The package version identifies the validator build,
+not a released specification. The Wizard and Wrapper do not yet call this API. Optional ISA
+checks still require the pinned dependencies described below.
+
+The optional `--isa-schema` check requires the `isa` extra above (or, from a
+checkout, `python -m pip install -r requirements-schema.txt`). It checks only the pinned ISA model 1.0 **core JSON
 Schema**, offline, and reports an incomplete check if the pinned package or
 schema fingerprint is unavailable. See [the baseline](../schemas/README.md).
 

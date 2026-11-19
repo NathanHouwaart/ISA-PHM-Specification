@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "isa-phm-validator"
+version = "0.1.0.dev0"
+description = "Experimental validator for selected draft ISA-PHM rules"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+isa = ["isatools==0.14.3", "jsonschema==4.23.0"]
+
+[project.scripts]
+isa-phm-validate = "validator.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["validator", "validator.*"]
+exclude = ["validator.tests*"]

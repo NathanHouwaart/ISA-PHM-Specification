@@ -6,8 +6,9 @@ import subprocess
 import sys
 
 from .isa_core import SchemaUnavailable, _schema_directory
+from .resources import resource_path
 
-CONFIG = Path(__file__).resolve().parents[1] / "schemas" / "isa-tools-phm"
+CONFIG = resource_path("schemas/isa-tools-phm")
 
 
 def validate_isa(path: Path) -> dict:

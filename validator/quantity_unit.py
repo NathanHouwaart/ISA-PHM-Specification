@@ -1,9 +1,9 @@
 """Load the draft compatibility advisory rules for the validator."""
 
 import json
-from pathlib import Path
+from .resources import resource_path
 
-_RULES_PATH = Path(__file__).resolve().parents[1] / "specification/quantity-unit-warning-rules.json"
+_RULES_PATH = resource_path("specification/quantity-unit-warning-rules.json")
 RULES = json.loads(_RULES_PATH.read_text(encoding="utf-8"))["rules"]
 
 

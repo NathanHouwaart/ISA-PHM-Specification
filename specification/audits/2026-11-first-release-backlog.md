@@ -44,10 +44,11 @@ of any particular diagnostic-window or timestamp convention.
    Backend output; record disagreements rather than silently selecting one.
 2. Resolve the material open decisions below and define version identification
    and legacy handling. Do not finalize future timeline design as a side effect.
-3. Add a portable Python validator API and CLI sharing one implementation,
-   with structured findings, rule IDs, version, checked scope, incomplete
-   results and summarized repeated findings. Define how dependencies and pinned
-   ISA schemas are installed and how unavailable checks affect results.
+3. Complete the Python validator API and CLI. They now share an experimental
+   implementation with structured per-check findings, selected scope and
+     incomplete results. Draft installable packaging is available; released profile versions, a
+   stable rule-ID contract and summarized repeated findings remain open. Define
+     how dependency upgrades and pinned ISA schemas are managed for releases.
 4. Implement every required machine-checkable rule and negative tests. Add
    compact fixtures for missing/unknown/not-applicable values, raw-only,
    raw-plus-processed and processed-only, versioning, references, CSVs,
