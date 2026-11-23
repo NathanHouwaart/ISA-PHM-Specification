@@ -2,6 +2,8 @@
 
 ISA-PHM describes prognostics and diagnostics datasets using the ISA model. This repository documents the dataset structure, its ISA-JSON representation, shared catalogues and validation checks.
 
+ISA-PHM builds on the original [ISA Model and Serialization Specifications](https://isa-specs.readthedocs.io/en/latest/), maintained in the [ISA specification GitHub repository](https://github.com/ISA-tools/isa-specs). For the underlying JSON format, see the [ISA-JSON specification](https://isa-specs.readthedocs.io/en/latest/isajson.html). ISA-PHM adds PHM-specific requirements and conventions to that foundation.
+
 **Start with the [specification guide](specification/README.md).** It walks through the investigation, studies, assays, protocols and data files, with JSON examples.
 
 Several rules have been agreed, but no versioned specification has been released. Some serialization details and validation rules remain open. Passing the validator's selected checks does not establish complete conformance.

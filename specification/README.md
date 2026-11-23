@@ -2,6 +2,12 @@
 
 Start here to understand how a dataset is organized and how its information appears in ISA-JSON. ISA-PHM uses ISA's investigation, study and assay concepts; its first specified serialization is ISA-JSON. ISA-Tab is outside the current scope.
 
+## Relationship to ISA
+
+The upstream [ISA Model and Serialization Specifications](https://isa-specs.readthedocs.io/en/latest/) define the ISA abstract model and its ISA-JSON and ISA-Tab formats. Their source is available in the [ISA-tools/isa-specs repository](https://github.com/ISA-tools/isa-specs); the [ISA-JSON specification](https://isa-specs.readthedocs.io/en/latest/isajson.html) describes the JSON structure and rules.
+
+This repository describes the additional PHM-specific dataset conventions and their ISA-JSON representation. Read the ISA specification for the underlying model and format, and this guide for the PHM-specific profile. For automated structural checks, the validator uses a pinned ISA-tools schema baseline described in [schemas](../schemas/README.md); that is separate from a complete ISA-PHM conformance check.
+
 ```text
 Dataset root
 ├── <name>.isa-phm.json        Investigation
