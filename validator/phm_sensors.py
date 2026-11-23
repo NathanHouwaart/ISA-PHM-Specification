@@ -1,4 +1,4 @@
-"""Experimental sensor answer checks for the current Backend assay mapping."""
+"""Experimental sensor answer checks for the current ISA-PHM assay representation."""
 
 from .layout import CheckResult, Issue
 

@@ -1,4 +1,4 @@
-"""Experimental check of the current Wizard/Backend experiment-type mapping."""
+"""Experimental check of the ISA-PHM experiment-type representation."""
 
 from .layout import CheckResult, Issue
 
@@ -15,7 +15,7 @@ def check_experiment_type(document):
         return result
     values = [item.get("value") for item in comments if item["name"] == "experiment_type"]
     if not values:
-        result.errors.append(Issue("phm-experiment-type", "No experiment_type answer was recorded in the current Backend mapping."))
+        result.errors.append(Issue("phm-experiment-type", "No experiment_type answer was recorded."))
         return result
     if any(not isinstance(value, str) for value in values):
         result.warnings.append(Issue("phm-experiment-type", "An experiment_type answer is not readable text."))
@@ -27,7 +27,7 @@ def check_experiment_type(document):
     if len(set(values) & recognized) == 2:
         result.errors.append(Issue("phm-experiment-type", "Conflicting diagnostic and prognostic experiment_type answers were recorded."))
     elif any(value not in recognized for value in values):
-        result.warnings.append(Issue("phm-experiment-type", "An experiment_type value is outside the current Wizard mapping; legacy classification was not inferred."))
+        result.warnings.append(Issue("phm-experiment-type", "An experiment_type value is not recognized; legacy classification was not inferred."))
     elif len(values) > 1:
         result.warnings.append(Issue("phm-experiment-type", "Duplicate experiment_type answers need review; duplicate policy is not yet defined."))
     return result

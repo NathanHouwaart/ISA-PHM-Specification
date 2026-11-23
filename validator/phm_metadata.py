@@ -1,4 +1,4 @@
-"""Experimental presence checks for the current Backend measurement mapping."""
+"""Experimental presence checks for the current ISA-PHM measurement representation."""
 
 from .layout import CheckResult, Issue
 from .quantity_unit import quantity_unit_warnings

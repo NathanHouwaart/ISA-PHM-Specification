@@ -1,4 +1,4 @@
-"""Experimental checks for the current Backend's ISA-JSON protocol mapping."""
+"""Experimental checks for the current ISA-JSON protocol representation."""
 
 from .layout import CheckResult, Issue, _placeholder
 

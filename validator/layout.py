@@ -60,7 +60,7 @@ def _check_data_path(result: CheckResult, root: Path, entry: dict, location: str
 
 
 def _check_attachment_comments(result: CheckResult, root: Path, obj: dict, location: str, mapping: dict) -> None:
-    """Check known Backend attachment comments when present; absence is permitted."""
+    """Check recognized attachment comments when present; absence is permitted."""
     comments = obj.get("comments", [])
     if not isinstance(comments, list):
         result.warnings.append(Issue("attachment-comments", f"{location}: comments are unreadable; attachment references were not checked."))

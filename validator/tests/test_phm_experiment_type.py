@@ -9,7 +9,7 @@ from validator.phm_experiment_type import check_experiment_type
 
 
 class ExperimentTypeTests(unittest.TestCase):
-    def test_current_wizard_values_pass(self):
+    def test_documented_values_pass(self):
         for value in ("diagnostic-experiment", "prognostics-experiment"):
             with self.subTest(value=value):
                 result = check_experiment_type({"comments": [{"name": "experiment_type", "value": value}]})
