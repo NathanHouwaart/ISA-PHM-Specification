@@ -1,4 +1,4 @@
-﻿# Protocols, measurements and data files
+# Protocols, measurements and data files
 
 [Specification guide](README.md) · [Assay](assay.md) · [Field reference](isa-json-field-inventory.md)
 
@@ -6,7 +6,7 @@ A measurement protocol describes how sensor data was acquired. Processed data al
 
 ## How the JSON connects them
 
-This abbreviated example shows the current Backend convention. The protocol lives in a study, and the data file and process live in one of that study's assays. Matching `@id` values connect them.
+This abbreviated example shows the current ISA-PHM representation. The protocol lives in a study, and the data file and process live in one of that study's assays. Matching `@id` values connect them.
 
 ```json
 {
@@ -36,7 +36,7 @@ This abbreviated example shows the current Backend convention. The protocol live
 }
 ```
 
-The example omits required ISA fields and the referenced Hz unit definition, which is an annotation in the study's `unitCategories`. `Sampling Rate` and `Measured Unit` are separate parameters. Each included output needs an explicit answer for both; a known value, `Unknown` and `Not applicable` have different meanings. The Wrapper reads the measured-unit parameter rather than guessing from other fields. Variable-rate encoding and some answer encodings remain open.
+The example omits required ISA fields and the referenced Hz unit definition, which is an annotation in the study's `unitCategories`. `Sampling Rate` and `Measured Unit` are separate parameters. Each included output needs an explicit answer for both; a known value, `Unknown` and `Not applicable` have different meanings. The measured unit is read from its explicit parameter rather than inferred from unrelated fields. Variable-rate encoding and some answer encodings remain open.
 
 ## Raw and processed relationships
 
@@ -44,7 +44,7 @@ The example omits required ISA fields and the referenced Hz unit definition, whi
 | --- | --- |
 | Raw only | Measurement outputs the raw file. |
 | Raw and processed | Measurement outputs raw; processing takes raw as input and outputs processed. |
-| Processed only | The Backend currently connects the processes using a pathless raw placeholder marked `availability: not included`; processing outputs the processed file. |
+| Processed only | The current representation connects the processes using a pathless raw placeholder marked `availability: not included`; processing outputs the processed file. |
 
 The processed-only placeholder is a current interoperability convention still under review; it does not assert that a raw file exists. When both files are present, the raw file is the processing input and the processed file the output. See [implementation notes](isa-json-implementation-notes.md) for the graph and validator coverage.
 

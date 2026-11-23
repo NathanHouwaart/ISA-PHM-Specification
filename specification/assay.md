@@ -2,7 +2,7 @@
 
 [Specification guide](README.md) · [Study](study.md) · Next: [Protocols and data](protocols-and-data.md)
 
-An assay is an entry in `studies[].assays`. In the current Wizard export, an assay describes one sensor output, its measurement files and the processes connecting them. An accelerometer's X, Y and Z outputs are separate outputs; several files can belong to one output.
+An assay is an entry in `studies[].assays`. In the current ISA-PHM representation, an assay describes one sensor output, its measurement files and the processes connecting them. An accelerometer's X, Y and Z outputs are separate outputs; several files can belong to one output.
 
 ```json
 {

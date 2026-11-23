@@ -68,7 +68,7 @@ uses the same exit statuses as the text interface.
 `draft` is a development profile, **not a specification release**: reports
 currently set `specification_version` and `conformant` to `null`, including
 when selected checks pass. The package version identifies the validator build,
-not a released specification. The Wizard and Wrapper do not yet call this API. Optional ISA
+not a released specification. Optional ISA
 checks still require the pinned dependencies described below.
 
 The optional `--isa-schema` check requires the `isa` extra above (or, from a
@@ -97,11 +97,11 @@ it does not change the input or disable the check. The validator runs in a
 separate process because ISA-tools uses global state.
 
 `--phm-protocols` selects preliminary measurement and processing relationship
-checks for the current Backend mapping. It is not a complete PHM validator;
+checks for the current ISA-PHM representation. It is not a complete PHM validator;
 its exact scope and limitations are documented in the [implementation notes](../specification/isa-json-implementation-notes.md).
 
 `--phm-metadata` checks for explicit sampling-rate and measured-unit answers
-on measurement processes using the current Backend mapping. `Unknown` and
+on measurement processes using the current ISA-PHM representation. `Unknown` and
 `Not applicable` count as explicit answers, not known numerical values or
 units. A narrow set of known incompatible identifier pairs produces
 non-blocking warnings (currently acceleration with gram/kilogram). Missing,
@@ -110,7 +110,7 @@ check does not comprehensively validate sampling rates, unit identifiers,
 quantity/unit compatibility, or scientific correctness.
 
 `--phm-experiment-type` checks the investigation's `experiment_type` comment
-against the current Wizard values `diagnostic-experiment` and
+against the values `diagnostic-experiment` and
 `prognostics-experiment`. Missing, blank or conflicting recognized answers
 fail this experimental mapping check. Unknown legacy values, malformed
 comments and duplicate identical answers are reported as not checked: aliases
@@ -118,8 +118,8 @@ and duplicate policy have not been decided. This does not inspect study design
 descriptors or establish that the recorded research purpose is correct; the
 mapping is not yet an approved versioned requirement.
 
-`--phm-sensors` checks for explicit answers in each assay's current Backend
-mapping: measured quantity in `measurementType.annotationValue`, technology
+`--phm-sensors` checks for explicit answers in each assay's current ISA-PHM
+representation: measured quantity in `measurementType.annotationValue`, technology
 type in `technologyType.annotationValue`, and model in `technologyPlatform`.
 Missing or blank answers fail the check. Unknown is accepted for all three;
 not applicable is accepted for technology and model, but is not checked for

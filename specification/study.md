@@ -1,4 +1,4 @@
-﻿# Study
+# Study
 
 [Specification guide](README.md) · [Investigation](investigation.md) · Next: [Assay](assay.md)
 
@@ -23,6 +23,6 @@ A study is an entry in the investigation's `studies` array. It groups the test s
 
 This abbreviated fragment illustrates the current structure. A factor's definition is in `studies[].factors`; its value is in `studies[].materials.samples[].factorValues`. The value's `category.@id` refers to its factor definition. A unit can reference a study unit annotation. Source and sample characteristics can describe setup components; current exports store setup image paths in source comments and component datasheets in characteristic comments. See the [field reference](isa-json-field-inventory.md).
 
-A scalar operating condition or fault label is recorded directly as a factor value. A time-varying operating condition is represented by a referenced CSV; the detailed file convention and reference-time semantics remain open. The present `total_runs` comment is metadata; the Wrapper derives runs from processes rather than verifying that count.
+A scalar operating condition or fault label is recorded directly as a factor value. A time-varying operating condition is represented by a referenced CSV; the detailed file convention and reference-time semantics remain open. The `total_runs` comment records a count; its consistency with process associations is not currently verified by the validator.
 
 Study-level `protocols` define measurement and processing protocols; assay processes refer to them. See [protocols and data](protocols-and-data.md).

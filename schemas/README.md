@@ -7,7 +7,7 @@ identifies its [model 1.0 core JSON schemas](https://isa-tools.org/isa-api/conte
 
 For reproducible initial tests, this repository uses the 21 ISA model 1.0 core
 JSON schemas bundled with the Python package `isatools==0.14.3`, together with
-`jsonschema==4.23.0`. These are the versions currently pinned by the Backend.
+`jsonschema==4.23.0`.
 The validator verifies the schema-file count and this SHA-256 fingerprint:
 
 ```text

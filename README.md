@@ -1,4 +1,4 @@
-﻿# ISA-PHM specification
+# ISA-PHM specification
 
 ISA-PHM describes prognostics and diagnostics datasets using the ISA model. This repository documents the dataset structure, its ISA-JSON representation, shared catalogues and validation checks.
 
@@ -17,4 +17,4 @@ Several rules have been agreed, but no versioned specification has been released
 - [Schema baseline](schemas/README.md), [catalogues](catalogues/README.md), [fixtures](fixtures/README.md) and [validator](validator/README.md)
 - [Decisions and development history](specification/README.md#decisions-and-development-history)
 
-Install and run the validator with `python -m pip install .` and `isa-phm-validate path/to/dataset.isa-phm.json`. See the [validator guide](validator/README.md) for optional checks and their limitations. The Wizard and Wrapper can pin this repository to share catalogues and selected rules; this does not imply complete validator coverage.
+Install and run the validator with `python -m pip install .` and `isa-phm-validate path/to/dataset.isa-phm.json`. See the [validator guide](validator/README.md) for optional checks and their limitations. The [ISA-PHM Wizard](https://github.com/NathanHouwaart/ISA-PHM-Wizard) helps researchers create datasets and abstracts the underlying ISA-JSON structure.

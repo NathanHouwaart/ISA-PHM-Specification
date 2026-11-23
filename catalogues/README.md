@@ -1,7 +1,7 @@
 # Shared unit and quantity catalogues (draft)
 
 These files are the single shared input for ISA-PHM tools. The first snapshot
-is the Wizard's existing catalogue, centralized without changing its entries.
+is the shared unit catalogue, based on QUDT with local additions.
 It is an experimental implementation baseline, not a released ISA-PHM profile
 or proof that every entry is suitable for a particular measurement.
 

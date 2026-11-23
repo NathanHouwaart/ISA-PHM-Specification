@@ -1,4 +1,4 @@
-﻿# ISA-PHM specification guide
+# ISA-PHM specification guide
 
 Start here to understand how a dataset is organized and how its information appears in ISA-JSON. ISA-PHM uses ISA's investigation, study and assay concepts; its first specified serialization is ISA-JSON. ISA-Tab is outside the current scope.
 
@@ -31,7 +31,7 @@ The hierarchy is a navigation aid: protocols and factor definitions live at stud
 5. [Protocols and data](protocols-and-data.md) — sampling rate, measured unit and raw/processed relationships.
 6. [ISA-JSON field reference](isa-json-field-inventory.md) — exact current comment names and locations.
 
-The examples are illustrative fragments, not complete valid investigations. They show the current Wizard/Backend representation and distinguish that representation from agreed conceptual rules. Some details are still being specified; the pages say where. No versioned specification has been released.
+The examples are illustrative fragments, not complete valid investigations. They illustrate the ISA-JSON representation and distinguish established rules from details still under review. Some details are still being specified; the pages say where. No versioned specification has been released.
 
 ## Validation and schemas
 

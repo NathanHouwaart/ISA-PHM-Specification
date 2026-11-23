@@ -47,7 +47,6 @@ Device metadata is optional. An absent datasheet reference does not require a fi
 | Information | JSON location | Current comment `name` / field |
 | --- | --- | --- |
 | Sensor identifier | `studies[].protocols[].comments[]` | `sensor_id` (legacy: `Sensor id`), on a measurement protocol |
-| Wizard selection identifiers | `studies[].protocols[].comments[]` | `selected_measurement_protocol_id`, `selected_processing_protocol_id` |
 | Parameter definition | `studies[].protocols[].parameters[]` | `@id`, `parameterName.annotationValue` |
 | Process protocol | `studies[].assays[].processSequence[]` | `executesProtocol.@id` |
 | Parameter value | `studies[].assays[].processSequence[].parameterValues[]` | `category.@id`, `value`, optional `unit.@id` |
@@ -58,4 +57,4 @@ Device metadata is optional. An absent datasheet reference does not require a fi
 
 ## Comment naming
 
-ISA-PHM-defined comment names use lowercase words separated by underscores. New exports use canonical names; readers accept the legacy spellings listed above for existing datasets. Unknown comments can contain researcher data and are not renamed. If both spellings occur with conflicting values, canonical values are preferred by the Wrapper; conflict reporting remains to be specified. Unknown comments can contain researcher data and must not automatically be interpreted as standardized fields.
+ISA-PHM-defined comment names use lowercase words separated by underscores. New exports use canonical names; readers accept the legacy spellings listed above for existing datasets. Unknown comments can contain researcher data and are not renamed. The handling of conflicting canonical and legacy values is not yet specified.

@@ -80,7 +80,7 @@ metadata remains necessary for processed-only data; processed data also needs
 an applicable processing protocol. When raw and processed files are available,
 the raw file is the processing input and the processed file is its output.
 
-A provisional Backend/Wrapper convention represents an unavailable raw input
+A provisional convention represents an unavailable raw input
 using a marked placeholder. It remains under review and is not established as
 a final ISA representation. Processing that changes units or sampling rate is
 also an open modelling question.
@@ -102,6 +102,4 @@ Tools may offer compatibility handling separately from conformance checks.
 ## Sources and open work
 
 See the [decision index](initial-audit.md), [interface audit](audits/2026-11-initial-interface-audit.md)
-and [timeline note](future-work/global-measurement-timeline.md). The current
-Wizard, Backend and Wrapper need alignment and have not yet been certified
-against this draft.
+and [timeline note](future-work/global-measurement-timeline.md). Implementations have not yet been certified against a released profile.
