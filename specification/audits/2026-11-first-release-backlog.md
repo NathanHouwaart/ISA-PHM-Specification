@@ -1,5 +1,7 @@
 # First ISA-PHM release: readiness audit and backlog
 
+> **Historical audit:** This is a snapshot of an earlier investigation. Findings and tool behavior may have changed. See the [specification guide](../README.md) and [open questions](../open-questions.md) for current information.
+
 Status: planning audit, not an approved standard or release. This document
 summarizes the existing draft and implementation evidence; it does not turn
 open questions into decisions. See the [draft profile](../draft-profile.md),

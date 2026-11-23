@@ -1,5 +1,7 @@
 # Existing XJTU-SY export: exploratory check
 
+> **Historical audit:** This is a snapshot of an earlier investigation. Findings and tool behavior may have changed. See the [specification guide](../README.md) and [open questions](../open-questions.md) for current information.
+
 This is an exploratory, read-only check of the local existing
 `XJTU-SY_Bearing_Datasets/ISA-PHM-Out.json` and its sibling `Data/` folder.
 It is **not** a fresh Wizard-to-Backend export or a certification of the XJTU

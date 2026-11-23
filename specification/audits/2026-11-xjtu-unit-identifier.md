@@ -1,5 +1,7 @@
 # XJTU-SY subset: unit identifier finding
 
+> **Historical audit:** This is a snapshot of an earlier investigation. Findings and tool behavior may have changed. See the [specification guide](../README.md) and [open questions](../open-questions.md) for current information.
+
 **Follow-up:** The project was re-exported with `G` / `unit:G`; all 568
 measurement processes in that later export were verified. The observations
 below describe the earlier export and are retained as audit history.

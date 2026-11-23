@@ -1,5 +1,7 @@
 # Processing-mode pipeline check
 
+> **Historical audit:** This is a snapshot of an earlier investigation. Findings and tool behavior may have changed. See the [specification guide](../README.md) and [open questions](../open-questions.md) for current information.
+
 This is an exploratory test of current working trees, not a specification
 release or proof of complete ISA-PHM or ISA graph conformance.
 

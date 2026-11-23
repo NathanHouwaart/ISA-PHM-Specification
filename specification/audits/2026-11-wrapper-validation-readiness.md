@@ -1,5 +1,7 @@
 # Wrapper validation readiness: exploratory audit
 
+> **Historical audit:** This is a snapshot of an earlier investigation. Findings and tool behavior may have changed. See the [specification guide](../README.md) and [open questions](../open-questions.md) for current information.
+
 These results exercise the current working draft, not a released ISA-PHM
 standard. They are not a complete assessment of the datasets. The selected
 checks were layout, ISA 1.0 core JSON Schema, experimental PHM protocol

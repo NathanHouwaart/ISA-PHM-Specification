@@ -1,5 +1,7 @@
 # Initial ISA-PHM interface audit — November 2026
 
+> **Historical audit:** This is a snapshot of an earlier investigation. Findings and tool behavior may have changed. See the [specification guide](../README.md) and [open questions](../open-questions.md) for current information.
+
 **Status: descriptive, incomplete, and non-normative.** This records observed
 behavior and questions; it is not specification version 0.1 or a conformance
 assessment. It does not conclude that a convention is absent from every part

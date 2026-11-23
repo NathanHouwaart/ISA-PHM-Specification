@@ -44,4 +44,4 @@ The validator cannot check every rule or scientific claim. See its guide before 
 
 ## Decisions and development history
 
-[Decisions](decisions/) record the reasons behind agreed directions and identify details that remain open. They are supporting history, not the main reading path. The [rule inventory](first-release-rule-inventory.md) tracks coverage and remaining work; [audits](audits/) record historical observations that may have since changed. The [timeline proposal](future-work/global-measurement-timeline.md) is future work. The earlier [profile summary](draft-profile.md) is retained for reference.
+[Decisions](decisions/) record the reasons behind agreed directions and identify details that remain open. They are supporting history, not the main reading path. The [rule inventory](first-release-rule-inventory.md) tracks coverage and remaining work; [historical audits](audits/README.md) preserve evidence from earlier investigations and may describe outdated behavior. The [timeline proposal](future-work/global-measurement-timeline.md) is future work. The earlier [profile summary](draft-profile.md) is retained for reference.
