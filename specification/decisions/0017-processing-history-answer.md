@@ -1,6 +1,6 @@
 # Decision 0017: Processing history answer
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 When processed data is included, an applicable processing protocol is required.
 It must be associated with the processed data it describes and explicitly

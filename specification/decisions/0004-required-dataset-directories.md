@@ -1,6 +1,6 @@
 # Decision 0004: Required dataset directories
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 The dataset root must contain the ISA-JSON investigation file and these three
 directories, with the names and capitalization shown:

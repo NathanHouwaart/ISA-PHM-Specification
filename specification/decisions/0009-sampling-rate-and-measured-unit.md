@@ -1,6 +1,6 @@
 # Decision 0009: Sampling rate and measured unit answers
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 Each sensor output included in the dataset must explicitly answer both the sampling-rate and
 measured-unit questions. An answer may provide a value where known and

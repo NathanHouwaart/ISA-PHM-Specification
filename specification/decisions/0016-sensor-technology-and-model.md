@@ -1,6 +1,6 @@
 # Decision 0016: Sensor technology and model answers
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 Each sensor output included in a dataset must have explicit answers for its
 technology type and sensor model, in addition to its measured quantity.

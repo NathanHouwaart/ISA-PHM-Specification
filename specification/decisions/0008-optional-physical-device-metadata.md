@@ -1,6 +1,6 @@
 # Decision 0008: Physical-device metadata is optional
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 An ISA-PHM dataset is not required to describe a physical measurement device.
 For example, simulated measurements may have no corresponding physical device.

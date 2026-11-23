@@ -1,6 +1,6 @@
 # Decision 0006: Scalar and time-varying test factors
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 A single scalar operating-condition or fault-label value is recorded directly
 as an ISA study-factor value, rather than requiring a separate one-value CSV.

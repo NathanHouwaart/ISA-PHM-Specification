@@ -1,6 +1,6 @@
 # Decision 0005: Investigation file extension
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 An ISA-PHM investigation file for the first release must be located in the
 dataset root and its filename must end in `.isa-phm.json`. The portion before

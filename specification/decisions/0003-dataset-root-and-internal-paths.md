@@ -1,6 +1,6 @@
 # Decision 0003: Dataset root and internal file paths
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 The ISA-JSON investigation file must be located at the root of the ISA-PHM
 dataset. References to files contained in the dataset are relative to that

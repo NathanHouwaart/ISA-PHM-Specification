@@ -1,6 +1,6 @@
 # Decision 0012: Diagnostic or prognostic dataset
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 For the first ISA-PHM specification release, a dataset is classified as
 either diagnostic or prognostic, not both. Related diagnostic and prognostic

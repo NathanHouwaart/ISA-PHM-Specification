@@ -1,27 +1,61 @@
-# ISA-JSON field inventory: current implementation
+# ISA-JSON field and comment reference
 
-Working documentation, not an approved specification. Names below describe
-the inspected Wizard/Backend/Wrapper implementations; do not assume all are
-mandatory, stable or prescribed by the paper. See the [interface audit](audits/2026-11-initial-interface-audit.md)
-for sources, scope and unresolved decisions.
+[Specification guide](README.md) · [Investigation](investigation.md) · [Study](study.md) · [Assay](assay.md)
 
-| Information | Observed ISA-JSON location | Consumer / caveat |
+This reference defines canonical ISA-PHM comment names for new exports and lists legacy names accepted when reading older exports. Array notation `[]` means an entry in that array; a comment is an object with `name` and `value`. Paths show JSON nesting, not filesystem paths. Examples on the linked pages show the surrounding objects. Current representation and agreed concepts do not mean every detail is finalized or validated.
+
+## Investigation
+
+| Information | JSON location | Current comment `name` / field |
 | --- | --- | --- |
-| Experiment type | Investigation `comments`: `experiment_type`; also study design descriptor | Wrapper reads the exact comment name; relationship and allowed values need specification. |
-| Researcher identifier, license | Investigation comments `ud_identifier`, `license` | Separate from ISA's generated investigation `identifier`; not comprehensively audited downstream. |
-| Run count | Study comment `total_runs`, string | Wrapper derives runs from processes; agreement with the comment is not verified. |
-| Sensor alias | Assay comment `sensor alias` | Wrapper falls back to assay filename if missing. |
-| Sensor identifier | Protocol comment `Sensor id` | Wrapper uses measurement protocol for sensor identity. Exact name currently matters. |
-| Sensor quantity | Assay `measurementType.annotationValue`, optionally `termAccession` | Wrapper exposes the text and identifier; not a comment. |
-| Sensor technology/model | Assay `technologyType.annotationValue` / `technologyPlatform` | Current mappings; catalog restrictions and full required-state rules remain to be defined. |
-| Physical device | Assay comments `physical device id`, `physical device name`, `physical device model`, `physical device serial number`, `physical device datasheet` | Optional grouping; Wrapper exposes these values. Identifier scope and conflict rules are open. |
-| Sensor datasheet | Assay `datasheet` comment | Optional; current layout checker verifies nonempty local paths. |
-| Setup image | Study source `image` comment, repeated per file | Current layout checker verifies nonempty local paths. |
-| Component datasheet | Source or sample characteristic `datasheet` comment | Current layout checker verifies nonempty local paths. |
-| Sampling rate / measured unit | Measurement protocol parameters and process `parameterValues` | Parameter `category.@id` links values to protocol parameter definitions; units and identifiers have distinct representations. The Wrapper now reads the explicit measured-unit parameter without inferring it from unrelated parameters. |
-| Factor value and unit | Sample `factorValues` with ISA unit annotation/reference | Scalar versus file-valued interpretation and reference validation are incomplete. |
-| Selected Wizard protocol | Protocol comments `selected_measurement_protocol_id`, `selected_processing_protocol_id` | Application identifiers; whether they belong in the public contract is open. |
+| Purpose | `comments[]` | `experiment_type` |
+| Researcher identifier | `comments[]` | `ud_identifier` (separate from root `identifier`) |
+| License | `comments[]` | `license` |
 
-The [implementation notes](isa-json-implementation-notes.md) explain process
-and file links. ISA comments may also hold arbitrary researcher data: an
-unknown comment must not automatically be treated as a standardized field.
+## Study and test setup
+
+| Information | JSON location, under `studies[]` | Current comment `name` / field |
+| --- | --- | --- |
+| Run count | `comments[]` | `total_runs` |
+| Setup image | `materials.sources[].comments[]` | `image` (one comment per file) |
+| Component identifier | `materials.sources[].characteristics[].comments[]` | `component_id` (legacy: `component ID`) |
+| Component datasheet | `materials.sources[].characteristics[].comments[]` or `materials.samples[].characteristics[].comments[]` | `datasheet` |
+| Factor definition | `factors[]` | `factorName`, `factorType`, `@id` |
+| Factor value | `materials.samples[].factorValues[]` | `category.@id`, `value`, optional `unit.@id` |
+| Unit annotation | `unitCategories[]` | `@id`, `annotationValue`, optional `termAccession` |
+
+## Sensor output and physical device
+
+Paths below are under `studies[].assays[]`.
+
+| Information | JSON location | Current comment `name` / field |
+| --- | --- | --- |
+| Sensor alias | `comments[]` | `sensor_alias` (legacy: `sensor alias`) |
+| Sensor datasheet | `comments[]` | `datasheet` |
+| Device identity | `comments[]` | `physical_device_id` (legacy: `physical device id`) |
+| Device name, model and serial number | `comments[]` | `physical_device_name`, `physical_device_model`, `physical_device_serial_number` (legacy: the same words separated by spaces) |
+| Device datasheet | `comments[]` | `physical_device_datasheet` (legacy: `physical device datasheet`) |
+| Measured quantity | `measurementType` | `annotationValue`, optional `termAccession` |
+| Technology type | `technologyType` | `annotationValue` |
+| Sensor model | assay object | `technologyPlatform` |
+| Measurement files | `dataFiles[]` | `@id`, `name`, `type` |
+
+Device metadata is optional. An absent datasheet reference does not require a file; the directory itself is required. Whether comments are required and how conflicting device definitions are handled are not fully specified.
+
+## Protocols and processes
+
+| Information | JSON location | Current comment `name` / field |
+| --- | --- | --- |
+| Sensor identifier | `studies[].protocols[].comments[]` | `sensor_id` (legacy: `Sensor id`), on a measurement protocol |
+| Wizard selection identifiers | `studies[].protocols[].comments[]` | `selected_measurement_protocol_id`, `selected_processing_protocol_id` |
+| Parameter definition | `studies[].protocols[].parameters[]` | `@id`, `parameterName.annotationValue` |
+| Process protocol | `studies[].assays[].processSequence[]` | `executesProtocol.@id` |
+| Parameter value | `studies[].assays[].processSequence[].parameterValues[]` | `category.@id`, `value`, optional `unit.@id` |
+| File association | `studies[].assays[].processSequence[]` | `inputs[].@id`, `outputs[].@id` |
+| Unavailable raw input | `studies[].assays[].dataFiles[].comments[]` | `availability: not included` on the provisional pathless placeholder |
+
+`Sampling Rate` and `Measured Unit` are parameter names, not comment names. See the [protocol example](protocols-and-data.md) for how the definitions and process values link.
+
+## Comment naming
+
+ISA-PHM-defined comment names use lowercase words separated by underscores. New exports use canonical names; readers accept the legacy spellings listed above for existing datasets. Unknown comments can contain researcher data and are not renamed. If both spellings occur with conflicting values, canonical values are preferred by the Wrapper; conflict reporting remains to be specified. Unknown comments can contain researcher data and must not automatically be interpreted as standardized fields.

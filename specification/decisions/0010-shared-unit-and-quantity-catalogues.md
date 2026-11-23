@@ -1,6 +1,6 @@
 # Decision 0010: Shared unit and quantity catalogues
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 The specification repository provides a shared, versioned home
 for the unit and measured-quantity catalogues used by ISA-PHM tools and

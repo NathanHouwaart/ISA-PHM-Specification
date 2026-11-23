@@ -1,6 +1,6 @@
 # Decision 0001: Scope of the first serialization
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 The ISA-PHM conceptual model is described independently of any particular
 serialization. The first fully specified and testable serialization is

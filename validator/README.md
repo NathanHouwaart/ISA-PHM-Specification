@@ -8,7 +8,7 @@ full ISA or ISA-PHM conformance validator**. It checks:
 - Recognizable `studies[].assays[].dataFiles[].name` references: relative to
   the dataset root, inside `Data/`, and pointing to an existing file.
 - The provisional pathless raw-data placeholder is not treated as a missing file.
-- When present, assay comments `datasheet` and `physical device datasheet`
+- When present, assay comments `datasheet`, `physical_device_datasheet` and its legacy spelling `physical device datasheet`
   reference existing files under `Datasheets/`. Blank or absent comments are
   allowed; these checks do not require a datasheet or inspect its content.
 - Source `image` comments and source/sample characteristic `datasheet`

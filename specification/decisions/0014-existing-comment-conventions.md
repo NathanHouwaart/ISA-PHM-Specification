@@ -1,6 +1,6 @@
 # Decision 0014: Review and migration of existing comment conventions
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 Review existing ISA-JSON comment names and representations before adopting
 them into the shared specification. Preserve existing names where they are

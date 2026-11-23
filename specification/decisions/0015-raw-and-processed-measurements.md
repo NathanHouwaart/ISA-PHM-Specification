@@ -1,6 +1,6 @@
 # Decision 0015: Raw and processed measurements
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 An included measurement may reference raw data, processed data, or both.
 The metadata must distinguish raw from processed data. Researchers are not

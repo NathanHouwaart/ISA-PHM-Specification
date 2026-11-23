@@ -1,61 +1,18 @@
-# ISA-PHM Specification (working draft)
+﻿# ISA-PHM specification
 
-This repository is intended to become the shared home of the ISA-PHM dataset
-specification, examples, schemas and a standalone reference validator.
+ISA-PHM describes prognostics and diagnostics datasets using the ISA model. This repository documents the dataset structure, its ISA-JSON representation, shared catalogues and validation checks.
 
-**Status: early draft. No specification version has been released.** The paper,
-existing datasets and tool implementations still need to be reviewed together.
-Repository contents do not yet establish ISA or ISA-PHM conformance.
+**Start with the [specification guide](specification/README.md).** It walks through the investigation, studies, assays, protocols and data files, with JSON examples.
 
-ISA-PHM is intended as a PHM-specific profile of ISA-JSON. The intended scope
-includes the dataset model, ISA-JSON representation, measurement files and
-their relationships. The specification will distinguish requirements that can
-be checked automatically from scientific judgments that remain the researcher's
-responsibility.
+Several rules have been agreed, but no versioned specification has been released. Some serialization details and validation rules remain open. Passing the validator's selected checks does not establish complete conformance.
 
-## Contents
+- [Dataset layout](specification/dataset-layout.md)
+- [Investigation](specification/investigation.md)
+- [Study, test setup and factors](specification/study.md)
+- [Assay and sensor outputs](specification/assay.md)
+- [Protocols, measurements and processing](specification/protocols-and-data.md)
+- [ISA-JSON field and comment reference](specification/isa-json-field-inventory.md)
+- [Schema baseline](schemas/README.md), [catalogues](catalogues/README.md), [fixtures](fixtures/README.md) and [validator](validator/README.md)
+- [Decisions and development history](specification/README.md#decisions-and-development-history)
 
-- [Specification work](specification/README.md)
-- [Shared draft unit and quantity catalogues](catalogues/README.md)
-- [Readable working draft](specification/draft-profile.md)
-- [Candidate first-release rule inventory](specification/first-release-rule-inventory.md)
-- [ISA-JSON implementation notes](specification/isa-json-implementation-notes.md)
-- [Current ISA-JSON field inventory](specification/isa-json-field-inventory.md)
-- [Schema work](schemas/README.md)
-- [Fixture work](fixtures/README.md)
-- [Experimental validator](validator/README.md)
-
-The experimental validator exposes a Python API and CLI for selected checks.
-A pass is not yet an ISA-PHM compliance claim; no profile version has been
-released. See the validator guide for installation and scope limitations.
-- [Initial audit](specification/initial-audit.md)
-- [First interface audit](specification/audits/2026-11-initial-interface-audit.md)
-- [First-release readiness audit and backlog](specification/audits/2026-11-first-release-backlog.md)
-- [Exploratory XJTU-SY export check](specification/audits/2026-11-xjtu-existing-export.md)
-- [XJTU-SY measured-unit identifier finding](specification/audits/2026-11-xjtu-unit-identifier.md)
-
-The included synthetic fixtures exercise selected layout and ISA core-schema
-checks; they are not certified ISA-PHM examples. No ISA-PHM conformance schemas have been agreed yet. The
-Backend's existing input schemas validate its Wizard-to-Backend payload; they
-are not a substitute for a schema for exported ISA-JSON.
-
-## Development
-
-The early layout-checking utility uses Python's standard library. Run its tests:
-
-```bash
-python -m unittest discover -s validator/tests
-```
-
-Install the draft validator from this checkout with `python -m pip install .`.
-To include the optional offline ISA checks, use `python -m pip install ".[isa]"`
-and run `isa-phm-validate <file> --isa-schema`.
-The schema check does not include ISA content or graph validation. To run the
-ISA-tools validator with the experimental PHM configuration, use
-`python -m validator <file> --isa`. See
-[the validator guide](validator/README.md).
-
-The Wizard and Wrapper can pin a draft revision of this repository as a Git
-submodule for shared experimental rules. A pinned commit makes the inputs
-reproducible; it does not turn the draft into a released standard. Consumers
-must update their pinned revisions deliberately when adopting changes.
+Install and run the validator with `python -m pip install .` and `isa-phm-validate path/to/dataset.isa-phm.json`. See the [validator guide](validator/README.md) for optional checks and their limitations. The Wizard and Wrapper can pin this repository to share catalogues and selected rules; this does not imply complete validator coverage.

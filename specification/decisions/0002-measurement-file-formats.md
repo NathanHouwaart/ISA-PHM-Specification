@@ -1,6 +1,6 @@
 # Decision 0002: Measurement file formats
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 The ISA-PHM conceptual model is not limited to a particular measurement-file
 format. The first concrete, testable file convention will cover CSV. Its

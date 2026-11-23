@@ -89,7 +89,7 @@ class LayoutTests(unittest.TestCase):
     def test_assay_datasheet_paths(self):
         (self.root / "Datasheets" / "sensor.pdf").write_bytes(b"example")
         for value, expected in [("./Datasheets/sensor.pdf", None), ("", None), ("Datasheets/missing.pdf", "datasheet-missing"), ("https://example.com/sensor.pdf", "datasheet-external"), (r"C:\sensor.pdf", "datasheet-external"), ("Data/file.csv", "datasheet-directory"), ("Datasheets/../../outside.pdf", "datasheet-escape")]:
-            for name in ("datasheet", "physical device datasheet"):
+            for name in ("datasheet", "physical device datasheet", "physical_device_datasheet"):
                 with self.subTest(value=value, name=name):
                     self.write({"studies": [{"assays": [{"dataFiles": [{"name": "Data/file.csv"}], "comments": [{"name": name, "value": value}]}]}]})
                     result = check_dataset(self.path)

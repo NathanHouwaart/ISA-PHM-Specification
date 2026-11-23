@@ -1,6 +1,6 @@
 # Decision 0011: Measured quantity answer
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 Each sensor output included in the dataset must have an explicit measured-quantity answer, describing
 what its values represent. The answer may select a quantity from the adopted

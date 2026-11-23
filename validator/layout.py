@@ -156,7 +156,7 @@ def check_dataset(investigation: Path, *, dataset_root: Path | None = None) -> C
         for assay_index, assay in enumerate(study["assays"]):
             location = f"study {study_index + 1}, assay {assay_index + 1}"
             if isinstance(assay, dict):
-                _check_attachment_comments(result, root, assay, location, {"datasheet": ("Datasheets", "datasheet"), "physical device datasheet": ("Datasheets", "datasheet")})
+                _check_attachment_comments(result, root, assay, location, {"datasheet": ("Datasheets", "datasheet"), "physical_device_datasheet": ("Datasheets", "datasheet"), "physical device datasheet": ("Datasheets", "datasheet")})
             if not isinstance(assay, dict) or not isinstance(assay.get("dataFiles"), list):
                 result.warnings.append(Issue("assay-files", f"{location}: no readable dataFiles list; references were not checked."))
                 continue

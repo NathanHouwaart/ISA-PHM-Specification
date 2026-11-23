@@ -1,6 +1,6 @@
 # Decision 0013: One sensor output per CSV
 
-Status: agreed direction for the draft; not yet a released specification.
+Status: agreed decision. The specification has not yet been released.
 
 In the first sensor-output CSV convention, each measurement CSV describes one
 sensor output. For example, an XYZ accelerometer has separate X, Y and Z
