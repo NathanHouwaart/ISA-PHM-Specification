@@ -18,3 +18,16 @@ Several rules have been agreed, but no versioned specification has been released
 - [Decisions and development history](specification/README.md#decisions-and-development-history)
 
 Install and run the validator with `python -m pip install .` and `isa-phm-validate path/to/dataset.isa-phm.json`. See the [validator guide](validator/README.md) for optional checks and their limitations. The [ISA-PHM Wizard](https://github.com/NathanHouwaart/ISA-PHM-Wizard) helps researchers create datasets and abstracts the underlying ISA-JSON structure.
+
+## Repository contents
+
+| Directory | Purpose |
+| --- | --- |
+| `specification/` | The human-readable profile, open questions and historical decisions. |
+| `catalogues/` | Shared unit and quantity snapshots, plus maintenance tools to regenerate them. |
+| `schemas/` | The ISA schema baseline and experimental ISA-tools configuration. |
+| `validator/` | The validator, its CLI, and its self-contained unit tests. |
+| `fixtures/` | Small synthetic examples used by validator tests. |
+| `tests/integration/` | Optional tests that exercise multiple repositories together. |
+
+To run the self-contained tests, use `python -m unittest discover -s validator/tests`. The [integration test guide](tests/integration/README.md) describes the separate cross-repository prerequisites.

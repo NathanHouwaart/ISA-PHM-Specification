@@ -20,6 +20,6 @@ for subject in set(graph.subjects(RDF.type, QUDT.QuantityKind)):
     if labels:
         items.append({'identifier': str(subject), 'name': labels[0]})
 items.sort(key=lambda item: item['identifier'])
-target = Path(__file__).resolve().parents[1] / 'catalogues/qudt-quantities-3.5.2.json'
+target = Path(__file__).resolve().parents[1] / 'qudt-quantities-3.5.2.json'
 target.write_text(json.dumps(items, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
 print(f'Wrote {len(items)} quantity kinds to {target}')

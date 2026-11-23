@@ -31,7 +31,7 @@ def main():
         kinds = sorted({str(value).rsplit('/', 1)[-1] for predicate in (QUDT.hasQuantityKind, QUDT.unitForQuantityKind) for value in graph.objects(subject, predicate)})
         units.append({"identifier": str(subject), "symbol": (symbols or codes)[0], "name": labels[0], "quantities": kinds, "aliases": sorted(set(symbols + codes))})
     units.sort(key=lambda unit: unit["identifier"])
-    target = Path(__file__).resolve().parents[1] / "catalogues" / "qudt-units-3.5.2.json"
+    target = Path(__file__).resolve().parents[1] / "qudt-units-3.5.2.json"
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(units, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
     print(f"Wrote {len(units)} units to {target}")

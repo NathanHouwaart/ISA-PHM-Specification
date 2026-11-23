@@ -18,5 +18,4 @@ with a comment value intentionally changed to a number; it should fail that
 schema. These are **not certified ISA-PHM datasets**: experimental ISA-tools
 and PHM checks do not cover the complete evolving ISA-PHM profile. The
 examples are synthetic and contain no research data.
-The optional generator is `scripts/generate-synthetic-isa-fixtures.py`; it
-requires the sibling Backend and regenerates UUIDs.
+The checked-in examples can be used without other repositories or a generator.

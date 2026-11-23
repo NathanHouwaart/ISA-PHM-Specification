@@ -38,10 +38,9 @@ copied into this repository.
 - Wrapper preprocessing logged duplicate unit IDs. Their cause and impact
   were not established in this check.
 
-Run `scripts/check-existing-dataset.py` with the investigation path and
-`--root <dataset-root>` to repeat the selected validator and first-run Wrapper
-checks. This script reads files only; its Wrapper inspection currently uses
-internal objects and is a diagnostic, not a stable public API example.
+The one-off dataset-inspection script used for this audit has been removed.
+For current checks, use the [validator guide](../../validator/README.md) and
+the Wrapper's public API.
 
 ## Still needed
 

@@ -10,7 +10,7 @@ release or proof of complete ISA-PHM or ISA graph conformance.
 - Wizard `conversion-payload.contract.test.js` passes its existing 12 tests,
   including separate raw-only and processed-only payload assertions. This is a
   JavaScript unit/contract test, not a browser-to-Backend export test.
-- `experiments/test_processed_only_placeholder.py` now also exercises raw
+- `tests/integration/test_processed_only_placeholder.py` also exercises raw
   only, raw plus processed, and processed only from a synthetic Backend payload
   through converter serialization, selected layout and PHM protocol checks,
   then Wrapper `raw`, `processed` and `auto` loading. Temporary CSVs contain

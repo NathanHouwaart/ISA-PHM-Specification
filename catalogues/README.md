@@ -15,12 +15,24 @@ or proof that every entry is suitable for a particular measurement.
   narrow set of experimental warnings, not a compatibility catalogue.
 
 QUDT is available under CC BY 4.0; see https://qudt.org/ and the pinned source
-URLs in `../scripts/generate_unit_catalogue.py` and
-`../scripts/generate_quantity_catalogue.py`. The generators require `rdflib`
+URLs in `tools/generate_unit_catalogue.py` and
+`tools/generate_quantity_catalogue.py`. The generators require `rdflib`
 and network access; generated snapshots and tools using them work offline.
 Review generated diffs and run tests before committing an update. Consumers
 pin a specification Git commit and update it deliberately; this does not yet
 establish a released profile version.
+
+To rebuild the snapshots from the repository root, install `rdflib` and run:
+
+```bash
+python catalogues/tools/generate_unit_catalogue.py
+python catalogues/tools/generate_quantity_catalogue.py
+python -m unittest validator.tests.test_catalogues
+```
+
+These maintenance commands download the pinned QUDT source and overwrite the
+corresponding JSON snapshots. They are not needed to use the catalogues or
+run the validator.
 
 An identifier's presence does not imply that a tool supports conversion,
 analysis, or scientific validation for that unit or quantity. Unknown and

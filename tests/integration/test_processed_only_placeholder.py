@@ -2,7 +2,7 @@
 
 Run from the specification repository with the Backend and Wrapper checked out
 as sibling directories and their dependencies installed:
-    python -m unittest experiments.test_processed_only_placeholder
+    python -m unittest discover -s tests/integration -p test_processed_only_placeholder.py
 """
 
 import io
@@ -13,16 +13,21 @@ import tempfile
 import unittest
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 BACKEND = ROOT / "ISA-PHM-Backend"
 WRAPPER = ROOT / "ISA-PHM-Wrapper"
+if not (BACKEND / "app").is_dir() or not (WRAPPER / "isa_phm").is_dir():
+    raise unittest.SkipTest("Optional Backend and Wrapper sibling checkouts are required")
 sys.path.insert(0, str(BACKEND))
 sys.path.insert(0, str(WRAPPER))
 
-from app.converter.entrypoint import create_isa_data  # noqa: E402
-from isatools import isajson  # noqa: E402
-from isa_phm import ISAWrapper  # noqa: E402
-from isa_phm.errors import DataFileError  # noqa: E402
+try:
+    from app.converter.entrypoint import create_isa_data  # noqa: E402
+    from isatools import isajson  # noqa: E402
+    from isa_phm import ISAWrapper  # noqa: E402
+    from isa_phm.errors import DataFileError  # noqa: E402
+except ImportError as exc:
+    raise unittest.SkipTest(f"Optional cross-repository dependencies unavailable: {exc}") from exc
 from validator.layout import check_dataset  # noqa: E402
 from validator.phm_protocols import check_protocols  # noqa: E402
 

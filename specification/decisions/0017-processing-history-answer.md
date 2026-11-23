@@ -90,7 +90,7 @@ file with unknown name. The example comment name is illustrative, not an
 adopted extension or specification decision.
 
 The executable cross-repository experiment is
-`experiments/test_processed_only_placeholder.py`. With a temporary processed
+`tests/integration/test_processed_only_placeholder.py`. With a temporary processed
 CSV, the current Wrapper loads processed and auto modes, rejects an explicit
 raw request as unavailable, and retains the sampling-rate parameter. The
 Originally, the Wrapper did not interpret the illustrative availability comment;

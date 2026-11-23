@@ -4,7 +4,7 @@
 
 Status: planning audit, not an approved standard or release. This document
 summarizes the existing draft and implementation evidence; it does not turn
-open questions into decisions. See the [draft profile](../draft-profile.md),
+open questions into decisions. See the [specification guide](../README.md),
 [decision index](../initial-audit.md), [implementation notes](../isa-json-implementation-notes.md),
 and [Wrapper readiness audit](2026-11-wrapper-validation-readiness.md).
 
